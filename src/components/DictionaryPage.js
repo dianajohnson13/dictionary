@@ -34,14 +34,13 @@ class DictionaryPage extends Component {
 
     render() {
         console.log(this.state.data)
-        return (
+        return  (this.props.word) ? (
             <div>
-                {this.props.word ? (
-                    <div>{this.props.word}</div>
-                ) : (
-                    <div>Search for a word...</div>
-                )}
-            </div>   
+                {/* <EntryHeader />
+                foreach definition, return definition component */}
+            </div>
+        ) : (
+            <p>Search for a word...</p>
         );
     }
 }
