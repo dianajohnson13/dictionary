@@ -7,12 +7,21 @@ const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 const fetchData = (word) => {
     return fetch(`${URL}${word}`)
         .then(response => response.json())
+        .then(result => {
+            let rawData;
+            if (result && result[0]) {
+                rawData = result[0];
+                return {
+                    word: rawData.word,
+                    origin: rawData.origin,
+                    meanings: rawData.meanings,
+                    // some phonetics don't contain audio; use one with audio
+                    phonetic: rawData.phonetics ? rawData.phonetics.find(el => el.audio) : null
+                }
+            }
+            return null;
+        })
 };
-
-// API to-do notes:
-//     - Use first item in resp Array
-//     - in phonetics, find first phonectic with audio and use that along with pronounciation
-//     - 
 
 class DictionaryPage extends Component {
     constructor(props) {
@@ -43,12 +52,12 @@ class DictionaryPage extends Component {
     }
 
     render() {
-        console.log(this.state.data)
-        return  (this.props.word) ? (
+        const { data } = this.state;
+        return data ? (
             <div>
                 <EntryHeader
-                    word={this.props.word}
-
+                    word={data.word}
+                    phonetic={data.phonetic}
                 />
                 {/* foreach definition, return definition component */}
             </div>
