@@ -1,3 +1,4 @@
+import '../styles/EntryHeader.css';
 
 function EntryHeader({
     word,
@@ -9,7 +10,7 @@ function EntryHeader({
     }
 
     return (
-        <div>
+        <div class="entry-header">
             <div>
                 <h1>{word}</h1>
                 {phonetic && phonetic.text ? (<p>{phonetic.text}</p>) : null}
