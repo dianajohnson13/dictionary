@@ -10,7 +10,7 @@ function EntryHeader({
     }
 
     return (
-        <div class="entry-header">
+        <div className="entry-header">
             <div>
                 <h1>{word}</h1>
                 {phonetic && phonetic.text ? (<p>{phonetic.text}</p>) : null}
