@@ -6,7 +6,12 @@ const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
 const fetchData = (word) => {
     return fetch(`${URL}${word}`)
-        .then(response => response.json())
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Something went wrong');
+         })
         .then(result => {
             let rawData;
             if (result && result[0]) {
@@ -21,6 +26,7 @@ const fetchData = (word) => {
             }
             return null;
         })
+        .catch(error => console.log(error))
 };
 
 class DictionaryPage extends Component {
@@ -40,7 +46,6 @@ class DictionaryPage extends Component {
     }
 
     componentDidUpdate(prevProps) {
-
         if (this.props.word === prevProps.word) return;
 
         if (this.props.word) {
