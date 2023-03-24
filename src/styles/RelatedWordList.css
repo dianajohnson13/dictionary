@@ -1,0 +1,16 @@
+.related-words-container {
+    /* display: inline; */
+}
+
+.related-words-container h3 {
+    display: inline;
+}
+
+.related-words-container ul {
+    display: inline;
+    list-style-type: none;
+}
+
+.related-words-container ul li {
+    display: inherit;
+}
