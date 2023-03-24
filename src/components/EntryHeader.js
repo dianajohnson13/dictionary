@@ -10,10 +10,10 @@ function EntryHeader({
     }
 
     return (
-        <div className="entry-header">
+        <div className ="entry-header">
             <div>
                 <h1>{word}</h1>
-                {phonetic && phonetic.text ? (<p>{phonetic.text}</p>) : null}
+                <p>{phonetic && phonetic.text ? phonetic.text : null}</p>
             </div>
             <button
                 disabled={!phonetic || !phonetic.audio}

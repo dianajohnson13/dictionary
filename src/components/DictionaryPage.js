@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import EntryHeader from "./EntryHeader";
+import Meaning from "./Meaning";
 
 const URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
@@ -64,7 +65,17 @@ class DictionaryPage extends Component {
                     word={data.word}
                     phonetic={data.phonetic}
                 />
-                {/* foreach definition, return definition component */}
+                {data.meanings.map((meaning, key) => {
+                    return (
+                        <Meaning
+                            key={key}
+                            partOfSpeech={meaning.partOfSpeech}
+                            definitions={meaning.definitions}
+                            synonyms={meaning.synonyms}
+                            antonyms={meaning.antonyms}
+                        />
+                    );
+                })}
             </div>
         ) : (
             <p>Search for a word...</p>
