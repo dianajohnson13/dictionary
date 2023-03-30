@@ -3,6 +3,8 @@
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
   max-width: 737px;
   margin: auto;
   padding: 1.5rem;
