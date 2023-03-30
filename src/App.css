@@ -2,7 +2,20 @@
   text-align: left;
 }
 
-.main {
+header {
   max-width: 737px;
   margin: auto;
+  padding: 1.5rem;
+}
+
+main {
+  max-width: 737px;
+  margin: auto;
+  padding: 0 1.5rem;
+}
+
+.search {
+  padding: 1rem .75rem;
+  border-radius: 1rem;
+  width: 100%;
 }

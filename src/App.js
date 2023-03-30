@@ -16,8 +16,13 @@ function App() {
       <header>
         <p>Dictionary</p>
       </header>
-      <main className="main">
-          <input type="text" placeholder='search' onKeyDown={handleSearch}/>
+      <main>
+          <input
+            className="search"
+            type="text"
+            placeholder="search"
+            onKeyDown={handleSearch}
+          />
           <DictionaryPage word={word} />
       </main>
       {/* TO-DO: footer */}
