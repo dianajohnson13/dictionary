@@ -1,4 +1,5 @@
 import '../styles/EntryHeader.css';
+import PlayIcon from '../assets/icon-play.svg';
 
 function EntryHeader({
     word,
@@ -16,10 +17,11 @@ function EntryHeader({
                 <p>{phonetic && phonetic.text ? phonetic.text : null}</p>
             </div>
             <button
+                className="play"
                 disabled={!phonetic || !phonetic.audio}
                 onClick={playAudio}
             >
-                Play
+                <img src={PlayIcon}/>
             </button>
         </div>
     );

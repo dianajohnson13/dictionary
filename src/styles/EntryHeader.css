@@ -2,4 +2,10 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-top: 1.5rem;
+}
+
+.play {
+    border: 0;
+    background: none;
 }
