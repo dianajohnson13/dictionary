@@ -8,7 +8,7 @@ function ThemeSwitch({
         <label className="switch">
             <input
                 type="checkbox"
-                aria-label="dark mode"
+                aria-label="view in dark mode"
                 checked={checked}
                 onClick={onToggle}
             />
