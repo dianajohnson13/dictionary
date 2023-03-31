@@ -11,7 +11,7 @@ function ThemeSwitch({
                 role="switch"
                 aria-label="view in dark mode"
                 checked={checked}
-                onClick={onToggle}
+                onChange={onToggle}
             />
             <span className="slider" />
         </label>
