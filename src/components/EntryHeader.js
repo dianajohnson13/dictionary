@@ -1,5 +1,5 @@
 import '../styles/EntryHeader.css';
-import PlayIcon from '../assets/icon-play.svg';
+import {ReactComponent as PlayIcon } from '../assets/icon-play.svg';
 
 function EntryHeader({
     word,
@@ -14,14 +14,15 @@ function EntryHeader({
         <div className ="entry-header">
             <div>
                 <h1>{word}</h1>
-                <p>{phonetic && phonetic.text ? phonetic.text : null}</p>
+                <p className="phonetic">{phonetic && phonetic.text ? phonetic.text : null}</p>
             </div>
             <button
+                aria-label="speak word"
                 className="play"
                 disabled={!phonetic || !phonetic.audio}
                 onClick={playAudio}
             >
-                <img src={PlayIcon}/>
+                <PlayIcon aria-hidden />
             </button>
         </div>
     );

@@ -3,9 +3,27 @@
     justify-content: space-between;
     width: 100%;
     margin-top: 1.5rem;
+    font-size: 4rem;
 }
 
 .play {
     border: 0;
     background: none;
+}
+
+.play-fill {
+    fill: #00AD71;
+}
+
+.play-fill:hover {
+    fill: #008e5d;
+}
+
+.play:focus .play-fill {
+        fill: #008e5d;
+}
+
+
+.phonetic {
+    font-size: 1.5rem;
 }

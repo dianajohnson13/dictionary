@@ -1,3 +1,4 @@
+import '../styles/Meaning.css'
 import RelatedWordList from "./RelatedWordList";
 
 // partOfSpeech: string
@@ -12,10 +13,10 @@ function Meaning({
     antonyms
 }) {
     return (
-        <div>
-            <h2>{partOfSpeech}</h2>
+        <div className="meaning">
+            <h2 className='part-of-speach'>{partOfSpeech}</h2>
             <h3>Meaning</h3>
-            <ul>
+            <ul className="definitions">
                 {definitions.map((item, key) => {
                    return <li key={key}>{item.definition}</li>
                 })}
