@@ -1,19 +1,27 @@
 import './App.css';
 import DictionaryPage from './components/DictionaryPage';
 import ThemeSwitch from './components/ThemeSwitch';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // const FONTS = {};
-
 function App() {
-  const [ word, setWord ] = useState(); 
-
+  const [ word, setWord ] = useState();
   // const [ font, setFont ] = useState();
   const [ theme, setTheme ] = useState('light');
 
-  const handleSearch = (event) => {
+  useEffect(() => {
+    window.addEventListener('hashchange',() => {
+      const newWord = window.location.href.split("#")[1];
+      setWord(newWord);
+      window.document.getElementById('searchInput').value = newWord;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+  })
+
+  const onSearchWord = (event) => {
     if (event.key === 'Enter') {
       setWord(event.target.value);
+      window.location.hash = `#${event.target.value}`;
     }
   }
 
@@ -39,10 +47,11 @@ function App() {
       </header>
       <main>
           <input
+            id="searchInput"
             className="search"
             type="text"
             placeholder="search"
-            onKeyDown={handleSearch}
+            onKeyDown={onSearchWord}
           />
           <DictionaryPage word={word} />
       </main>
