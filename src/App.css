@@ -1,10 +1,13 @@
 .App.light {
   --bg-color: white;
+  --search_background:#F4F4F4;
 }
 
 .App.dark {
   --text-color: white;
   --bg-color: #050505;
+  --search_background:#1F1F1F;
+  --definition-example-text: #757575;
 }
 
 .App {
@@ -35,6 +38,7 @@ main {
 }
 
 .search {
+  background: var(--search_background);
   padding: 1rem .75rem;
   border-radius: 1rem;
   width: 100%;
