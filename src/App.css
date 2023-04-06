@@ -1,10 +1,13 @@
 .App.light {
+  --text-color: black;
   --bg-color: white;
   --search_background:#F4F4F4;
+  --secondary-color: #A445ED;
 }
 
 .App.dark {
   --text-color: white;
+  --secondary-color: #A445ED;;
   --bg-color: #050505;
   --search_background:#1F1F1F;
   --definition-example-text: #757575;
@@ -39,9 +42,15 @@ main {
 
 .search {
   background: var(--search_background);
-  padding: 1rem .75rem;
+  padding: 1.25rem 1.5rem;
   border-radius: 1rem;
   width: 100%;
+  border: 0;
+  color: var(--text-color);
+}
+
+.search:focus-visible {
+  outline-color: var(--secondary-color);
 }
 
 h1 {
@@ -54,4 +63,8 @@ h2 {
 
 h3 {
   font-size: 1.25rem;
+}
+
+a {
+  color: var(--secondary-color);
 }

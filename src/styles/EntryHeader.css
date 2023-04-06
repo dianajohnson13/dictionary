@@ -12,18 +12,19 @@
 }
 
 .play-fill {
-    fill: #00AD71;
+    fill: var(--secondary-color);
 }
 
 .play-fill:hover {
-    fill: #008e5d;
+    fill: var(--secondary-color);
 }
 
 .play:focus .play-fill {
-        fill: #008e5d;
+        fill: var(--secondary-color);
 }
 
 
 .phonetic {
     font-size: 1.5rem;
+    color: var(--secondary-color);
 }
