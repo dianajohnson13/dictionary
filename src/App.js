@@ -11,6 +11,7 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('hashchange',() => {
+      // TO-DO: Handle multiple words in URL
       const newWord = window.location.href.split("#")[1];
       setWord(newWord);
       window.document.getElementById('searchInput').value = newWord;
@@ -21,6 +22,7 @@ function App() {
   const onSearchWord = (event) => {
     if (event.key === 'Enter') {
       setWord(event.target.value);
+     // TO-DO: Handle multiple words in URL
       window.location.hash = `#${event.target.value}`;
     }
   }
