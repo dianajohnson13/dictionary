@@ -18,7 +18,12 @@ function Meaning({
             <h3>Meaning</h3>
             <ul className="definitions">
                 {definitions.map((item, key) => {
-                   return <li key={key}>{item.definition}</li>
+                   return (
+                        <li key={key}>
+                            <p>{item.definition}</p>
+                            <p className="definition-example">{item.example}</p>
+                        </li>
+                   );
                 })}
             </ul>
             {synonyms.length > 0 && (

@@ -13,3 +13,8 @@
 .definitions li {
     margin-bottom: 1rem;
 }
+
+.definition-example {
+    margin-top: .5rem;
+    color: #757575;
+}
