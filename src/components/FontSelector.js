@@ -13,8 +13,20 @@ export default function FontSelector({
 
     useEffect(() => {
         document.getElementById("font-options").addEventListener("click", onSelectFont, true);
-      })
+    });
 
+    useEffect(() => {
+        if (open) {
+            const onClickOutsideSelect = (event) => {
+                const customSelect = document.getElementById('custom-select');
+                const didClickedOutside = !customSelect.contains(event.target);
+                if (didClickedOutside) toggleOpen();
+            }
+
+            document.addEventListener("click", onClickOutsideSelect);
+            return () => window.removeEventListener('click', onClickOutsideSelect);
+        }
+    }, [open]);
 
     const toggleOpen = () => {
         setOpen(!open);
@@ -27,8 +39,9 @@ export default function FontSelector({
     }
 
     return (
-        <div className='custom-select-container'>
+        <div id="custom-select" className='custom-select-container'>
             <select
+                id="native-select"
                 name="font"
                 onChange={onSelect}
                 defaultValue={selected}
