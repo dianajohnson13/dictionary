@@ -9,20 +9,22 @@
 .play {
     border: 0;
     background: none;
+    display: contents;
+    color: var(--secondary-color);
+    cursor: pointer;
 }
 
-.play-fill {
+.play:hover .play-fill {
     fill: var(--secondary-color);
 }
 
-.play-fill:hover {
-    fill: var(--secondary-color);
+.play:hover circle {
+    opacity: 1;
 }
 
-.play:focus .play-fill {
-        fill: var(--secondary-color);
+.play:hover path {
+    fill: white;
 }
-
 
 .phonetic {
     font-size: 1.5rem;
