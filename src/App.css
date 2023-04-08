@@ -4,6 +4,7 @@
   --search_background:#F4F4F4;
   --secondary-color: #A445ED;
   --select-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  --menu-item-hover-bg:  rgba(0, 0, 0, 0.1);
 }
 
 .App.dark {
@@ -13,6 +14,7 @@
   --search_background:#1F1F1F;
   --definition-example-text: #757575;
   --select-box-shadow: #A445ED 0px 3px 8px;
+  --menu-item-hover-bg: #A445ED;
 }
 
 .App {

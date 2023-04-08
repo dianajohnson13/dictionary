@@ -38,7 +38,7 @@
   }
   
   .select-items li:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--menu-item-hover-bg);
   }
   
   .selected-arrow {
