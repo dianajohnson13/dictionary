@@ -40,26 +40,19 @@ export default function FontSelector({
 
     return (
         <div id="custom-select" className='custom-select-container'>
-            <select
-                id="native-select"
-                name="font"
-                onChange={onSelect}
-                defaultValue={selected}
-            >
-                {fontOptions.map((option, idx) => (
-                    <option key={idx} value={option} style={{fontFamily: option}}>
-                        {option}
-                    </option>
-                ))}
-            </select>
-            <div className="select-selected" onClick={toggleOpen}>
+            <div role="combobox" aria-label="Choose a font" className="select-selected" onClick={toggleOpen}>
                 {selected}
-                {/* TO DO: add arrow*/}
                 <img src={DownChevron} className='selected-arrow'/>
             </div>
-            <ul id="font-options" className={`select-items${!open ? ' select-hide' : ''}`}>
+            <ul role="listbox" id="font-options" className={`select-items${!open ? ' select-hide' : ''}`}>
                 {fontOptions.map((option, idx) => (
-                    <li key={idx} data-value={option} style={{fontFamily: options[option]}}>
+                    <li
+                        role="option"
+                        aria-selected={option === selected}
+                        key={idx}
+                        data-value={option}
+                        style={{fontFamily: options[option]}}
+                    >
                         {option}
                     </li>
                 ))}
