@@ -3,6 +3,7 @@
   --bg-color: white;
   --search_background:#F4F4F4;
   --secondary-color: #A445ED;
+  --select-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .App.dark {
@@ -11,6 +12,7 @@
   --bg-color: #050505;
   --search_background:#1F1F1F;
   --definition-example-text: #757575;
+  --select-box-shadow: #A445ED 0px 3px 8px;
 }
 
 .App {
@@ -34,6 +36,10 @@ header {
   padding: 1.5rem;
 }
 
+.header-left {
+  display: flex;
+}
+
 main {
   max-width: 737px;
   margin: auto;
@@ -51,6 +57,12 @@ main {
 
 .search:focus-visible {
   outline-color: var(--secondary-color);
+}
+
+.custom-select-container {
+  position: relative;
+  margin-right: 1.5rem;
+  width: 7rem;
 }
 
 h1 {

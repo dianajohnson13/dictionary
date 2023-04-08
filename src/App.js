@@ -1,12 +1,18 @@
 import './App.css';
 import DictionaryPage from './components/DictionaryPage';
 import ThemeSwitch from './components/ThemeSwitch';
+import FontSelector from './components/FontSelector';
 import { useState, useEffect } from 'react';
 
-// const FONTS = {};
+export const FONTS = {
+  "sans serif": "sans-serif",
+  "serif": "serif",
+  "mono": "monospace"
+};
+
 function App() {
   const [ word, setWord ] = useState();
-  // const [ font, setFont ] = useState();
+  const [ font, setFont ] = useState('sans serif');
   const [ theme, setTheme ] = useState('light');
 
   useEffect(() => {
@@ -35,15 +41,23 @@ function App() {
     }
   }
 
+  const onSelectFont = (font) => {
+    setFont(font);
+  }
+
   return (
-    <div className={`App ${theme}`}>
+    <div className={`App ${theme}`} style={{fontFamily: FONTS[font]}}>
       <header>
         <p>Dictionary</p>
-        <div>
-          {/* font picker */}
+        <div className='header-left'>
+          <FontSelector
+            selected={font}
+            options={FONTS}
+            onSelect={onSelectFont}
+          />
           <ThemeSwitch
-              checked={theme === "dark"}
-              onToggle={onSwitchTheme}
+            checked={theme === "dark"}
+            onToggle={onSwitchTheme}
           />
         </div>
       </header>
