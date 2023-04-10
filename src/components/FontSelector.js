@@ -42,7 +42,7 @@ export default function FontSelector({
         <div id="custom-select" className='custom-select-container'>
             <div role="combobox" aria-label="Choose a font" className="select-selected" onClick={toggleOpen}>
                 {selected}
-                <img src={DownChevron} className='selected-arrow'/>
+                <img src={DownChevron} className='selected-arrow' alt=""/>
             </div>
             <ul role="listbox" id="font-options" className={`select-items${!open ? ' select-hide' : ''}`}>
                 {fontOptions.map((option, idx) => (
