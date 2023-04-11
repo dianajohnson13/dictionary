@@ -37,7 +37,7 @@
     display: none;
   }
   
-  .select-items li:hover {
+  .select-items li:hover,  .select-items li:focus{
     background-color: var(--menu-item-hover-bg);
   }
   

@@ -13,23 +13,36 @@ export default function FontSelector({
 
     useEffect(() => {
         document.getElementById("font-options").addEventListener("click", onSelectFont, true);
-    });
+        document.getElementById("font-options").addEventListener("keydown", onKeyDownInMenu);
+
+        return () => {
+            window.removeEventListener("click", onSelectFont);
+            window.removeEventListener("keydown", onKeyDownInMenu);
+        }
+    }, []);
 
     useEffect(() => {
         if (open) {
-            const onClickOutsideSelect = (event) => {
-                const customSelect = document.getElementById('custom-select');
-                const didClickedOutside = !customSelect.contains(event.target);
-                if (didClickedOutside) toggleOpen();
-            }
-
+            document.getElementById('font-options').focus();
             document.addEventListener("click", onClickOutsideSelect);
+
             return () => window.removeEventListener('click', onClickOutsideSelect);
         }
     }, [open]);
 
+    const onKeyDownInMenu = (event) => {
+        console.log('down', event)
+    }
+
+    const onClickOutsideSelect = (event) => {
+        const customSelect = document.getElementById('custom-select');
+        const didClickedOutside = !customSelect.contains(event.target);
+        if (didClickedOutside) toggleOpen();
+    }
+
     const toggleOpen = () => {
-        setOpen(!open);
+        const openSesame = !open;
+        setOpen(openSesame);
     }
 
     const onSelectFont = (event) => {
@@ -40,11 +53,19 @@ export default function FontSelector({
 
     return (
         <div id="custom-select" className='custom-select-container'>
-            <div role="combobox" aria-label="Choose a font" className="select-selected" onClick={toggleOpen}>
+            <div
+                role="combobox"
+                aria-label="Choose a font"
+                aria-haspopup="true"
+                aria-expanded={open}
+                className="select-selected"
+                onClick={toggleOpen}
+                tabIndex={0}
+            >
                 {selected}
                 <img src={DownChevron} className='selected-arrow' alt=""/>
             </div>
-            <ul role="listbox" id="font-options" className={`select-items${!open ? ' select-hide' : ''}`}>
+            <ul role="listbox" tabIndex="-1" id="font-options" className={`select-items${!open ? ' select-hide' : ''}`}>
                 {fontOptions.map((option, idx) => (
                     <li
                         role="option"
