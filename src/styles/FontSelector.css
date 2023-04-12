@@ -4,8 +4,16 @@
   .select-selected {
     display: flex;
     justify-content: space-between;
+    padding: 0 .5em;
+    border-radius: 1rem;
+    width: 100%;
+    border: 1px solid transparent;
   }
-  
+
+  .select-selected[aria-expanded="true"] {
+    border-color: var(--secondary-color);
+  }
+
   /*style the items (options), including the selected item:*/
   .select-items li,.select-selected {
     margin: 0;
