@@ -58,6 +58,7 @@ export default function FontSelector({
                 aria-label="Choose a font"
                 aria-haspopup="true"
                 aria-expanded={open}
+                aria-controls="font-options"
                 className="select-selected"
                 onClick={toggleOpen}
                 tabIndex={0}
