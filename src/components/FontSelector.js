@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import '../styles/FontSelector.css';
 import DownChevron from '../assets/down-chevron.svg';
@@ -11,6 +11,27 @@ export default function FontSelector({
     const [ open, setOpen ] = useState();
     const fontOptions = Object.keys(options);
 
+    const onKeyDownInMenu = useCallback((event) => {
+        console.log('down', event)
+    }, [])
+
+    const toggleOpen = useCallback(() => {
+        const openSesame = !open;
+        setOpen(openSesame);
+    }, [open])
+
+    const onClickOutsideSelect = useCallback((event) => {
+        const customSelect = document.getElementById('custom-select');
+        const didClickedOutside = !customSelect.contains(event.target);
+        if (didClickedOutside) toggleOpen();
+    }, [toggleOpen])
+
+    const onSelectFont = useCallback((event) => {
+        const newSelection = event.target.getAttribute('data-value');
+        toggleOpen();
+        onSelect(newSelection);
+    }, [toggleOpen, onSelect])
+
     useEffect(() => {
         document.getElementById("font-options").addEventListener("click", onSelectFont, true);
         document.getElementById("font-options").addEventListener("keydown", onKeyDownInMenu);
@@ -19,7 +40,7 @@ export default function FontSelector({
             window.removeEventListener("click", onSelectFont);
             window.removeEventListener("keydown", onKeyDownInMenu);
         }
-    }, []);
+    }, [onSelectFont, onKeyDownInMenu]);
 
     useEffect(() => {
         if (open) {
@@ -28,28 +49,7 @@ export default function FontSelector({
 
             return () => window.removeEventListener('click', onClickOutsideSelect);
         }
-    }, [open]);
-
-    const onKeyDownInMenu = (event) => {
-        console.log('down', event)
-    }
-
-    const onClickOutsideSelect = (event) => {
-        const customSelect = document.getElementById('custom-select');
-        const didClickedOutside = !customSelect.contains(event.target);
-        if (didClickedOutside) toggleOpen();
-    }
-
-    const toggleOpen = () => {
-        const openSesame = !open;
-        setOpen(openSesame);
-    }
-
-    const onSelectFont = (event) => {
-        const newSelection = event.target.getAttribute('data-value');
-        toggleOpen();
-        onSelect(newSelection);
-    }
+    }, [open, onClickOutsideSelect]);
 
     return (
         <div id="custom-select" className='custom-select-container'>
