@@ -12,7 +12,7 @@ export default function FontSelector({
     const fontOptions = Object.keys(options);
 
     const onKeyDownInMenu = useCallback((event) => {
-        console.log('down', event)
+        console.log("key down", event)
     }, [])
 
     const toggleOpen = useCallback(() => {
@@ -33,16 +33,6 @@ export default function FontSelector({
     }, [toggleOpen, onSelect])
 
     useEffect(() => {
-        document.getElementById("font-options").addEventListener("click", onSelectFont, true);
-        document.getElementById("font-options").addEventListener("keydown", onKeyDownInMenu);
-
-        return () => {
-            window.removeEventListener("click", onSelectFont);
-            window.removeEventListener("keydown", onKeyDownInMenu);
-        }
-    }, [onSelectFont, onKeyDownInMenu]);
-
-    useEffect(() => {
         if (open) {
             document.getElementById('font-options').focus();
             document.addEventListener("click", onClickOutsideSelect);
@@ -52,7 +42,7 @@ export default function FontSelector({
     }, [open, onClickOutsideSelect]);
 
     return (
-        <div id="custom-select" className='custom-select-container'>
+        <div id="custom-select" className='custom-select-container' onKeyDown={onKeyDownInMenu}>
             <div
                 role="combobox"
                 aria-label="Choose a font"
@@ -66,7 +56,12 @@ export default function FontSelector({
                 {selected}
                 <img src={DownChevron} className='selected-arrow' alt=""/>
             </div>
-            <ul role="listbox" tabIndex="-1" id="font-options" className={`select-items${!open ? ' select-hide' : ''}`}>
+            <ul
+                role="listbox"
+                tabIndex="-1"
+                id="font-options"
+                className={`select-items${!open ? ' select-hide' : ''}`}
+            >
                 {fontOptions.map((option, idx) => (
                     <li
                         role="option"
@@ -74,6 +69,7 @@ export default function FontSelector({
                         key={idx}
                         data-value={option}
                         style={{fontFamily: options[option]}}
+                        onClick={onSelectFont}
                     >
                         {option}
                     </li>
