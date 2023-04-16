@@ -1,58 +1,55 @@
-.custom-select-container select {
-    display: none; /*hide original SELECT element: */
-  }
-  .select-selected {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 .5em;
-    border-radius: 1rem;
-    width: 100%;
-    border: 1px solid transparent;
-  }
+.select-selected {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 .5em;
+  border-radius: 1rem;
+  width: 100%;
+  border: 1px solid transparent;
+}
 
-  .select-selected[aria-expanded="true"] {
-    border-color: var(--secondary-color);
-  }
+.select-selected[aria-expanded="true"] {
+  border-color: var(--secondary-color);
+}
 
-  /*style the items (options), including the selected item:*/
-  .select-items li,.select-selected {
-    margin: 0;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  /*style items (options):*/
-  .select-items {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    box-shadow: var(--select-box-shadow);
-    background: var(--bg-color);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: inherit;
-  }
+/*style the items (options), including the selected item:*/
+.select-items li,.select-selected {
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+}
 
-  .select-items li {
-    padding: .5rem .75rem;
-  }
-  
-  /*hide the items when the select box is closed:*/
-   .select-hide {
-    display: none;
-  }
-  
-  .select-items li:hover,  .select-items li:focus{
-    background-color: var(--menu-item-hover-bg);
-  }
-  
-  .selected-arrow {
-    width: 1em;
-  }
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  box-shadow: var(--select-box-shadow);
+  background: var(--bg-color);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: inherit;
+}
 
-  .selected-arrow svg {
-    stroke: var(--secondary-color);
-  }
+.select-items li {
+  padding: .5rem .75rem;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items li:focus {
+  background-color: var(--menu-item-hover-bg);
+}
+
+.selected-arrow {
+  width: 1em;
+}
+
+.selected-arrow svg {
+  stroke: var(--secondary-color);
+}
