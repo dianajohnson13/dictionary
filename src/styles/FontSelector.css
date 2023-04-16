@@ -10,6 +10,9 @@
 .select-selected[aria-expanded="true"] {
   border-color: var(--secondary-color);
 }
+.select-selected:focus-visible {
+  outline-color: var(--secondary-color);
+}
 
 /*style the items (options), including the selected item:*/
 .select-items li,.select-selected {
@@ -42,8 +45,16 @@
   display: none;
 }
 
+.select-items:focus-visible {
+  outline: none;
+}
+
 .select-items li:focus {
   background-color: var(--menu-item-hover-bg);
+}
+
+.select-items li:focus-visible {
+  outline: none;
 }
 
 .selected-arrow {
