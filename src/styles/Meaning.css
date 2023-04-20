@@ -4,7 +4,19 @@
 
 .part-of-speach {
     margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
 }
+
+.part-of-speach:after {
+    display: inline-block;
+    content: "";
+    height: 1px;
+    background: var(--accent-grey);
+    position: relative;
+    width: 100%;
+    margin-left: 1rem;
+  }
 
 .definitions {
     padding-left: 1.5rem;
@@ -16,5 +28,5 @@
 
 .definition-example {
     margin-top: .5rem;
-    color: #757575;
+    color: var(--accent-grey);
 }

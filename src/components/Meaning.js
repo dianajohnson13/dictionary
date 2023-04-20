@@ -14,7 +14,9 @@ function Meaning({
 }) {
     return (
         <div className="meaning">
-            <h2 className='part-of-speach'>{partOfSpeech}</h2>
+            <h2 className='part-of-speach'>
+                <em>{partOfSpeech}</em>
+            </h2>
             <h3>Meaning</h3>
             <ul className="definitions">
                 {definitions.map((item, key) => {

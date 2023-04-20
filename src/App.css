@@ -5,6 +5,7 @@
   --secondary-color: #A445ED;
   --select-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   --menu-item-hover-bg:  rgba(0, 0, 0, 0.1);
+  --accent-grey: #757575;
 }
 
 .App.dark {
@@ -15,6 +16,7 @@
   --definition-example-text: #757575;
   --select-box-shadow: #A445ED 0px 3px 8px;
   --menu-item-hover-bg: #A445ED;
+  --accent-grey: #757575;
 }
 
 .App {
@@ -42,6 +44,13 @@ header {
   display: flex;
 }
 
+.header-left hr {
+  height: 100%;
+  align-self: center;
+  margin: 0 1rem 0 0.5rem;
+  background-color: var(--accent-grey);
+}
+
 main {
   max-width: 737px;
   margin: auto;
@@ -63,7 +72,7 @@ main {
 
 .custom-select-container {
   position: relative;
-  margin-right: 1.5rem;
+
   width: 7rem;
 }
 

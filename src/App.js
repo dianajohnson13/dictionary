@@ -55,6 +55,7 @@ function App() {
             options={FONTS}
             onSelect={onSelectFont}
           />
+          <hr aria-hidden/>
           <ThemeSwitch
             checked={theme === "dark"}
             onToggle={onSwitchTheme}
