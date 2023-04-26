@@ -63,15 +63,16 @@ export default function FontSelector({
     }, [open])
 
     const toggleOpen = useCallback(() => {
-        const openSesame = !open;
-        if (!openSesame) document.getElementById('select-selected').focus();
-        setOpen(openSesame);
+        setOpen(!open);
     }, [open])
 
     const onClickOutsideSelect = useCallback((event) => {
         const customSelect = document.getElementById('custom-select');
         const didClickedOutside = !customSelect.contains(event.target);
-        if (didClickedOutside) toggleOpen();
+        if (didClickedOutside) {
+            toggleOpen();
+            document.removeEventListener("click", onClickOutsideSelect, true);
+        }
     }, [toggleOpen])
 
     const selectFont = (event) => {
@@ -87,7 +88,7 @@ export default function FontSelector({
     useEffect(() => {
         if (open) {
             document.getElementById('font-options').focus();
-            document.addEventListener("click", onClickOutsideSelect);
+            document.addEventListener("click", onClickOutsideSelect, true);
 
             return () => window.removeEventListener('click', onClickOutsideSelect);
         }
