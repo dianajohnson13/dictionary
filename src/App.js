@@ -1,8 +1,10 @@
+import { useState, useEffect } from 'react';
+
 import './App.css';
 import DictionaryPage from './components/DictionaryPage';
 import ThemeSwitch from './components/ThemeSwitch';
 import FontSelector from './components/FontSelector';
-import { useState, useEffect } from 'react';
+import {ReactComponent as PlayIcon } from './assets/logo.svg';
 
 export const FONTS = {
   "sans serif": "sans-serif",
@@ -48,7 +50,7 @@ function App() {
   return (
     <div className={`App ${theme}`} style={{fontFamily: FONTS[font]}}>
       <header>
-        <p>Dictionary</p>
+        <PlayIcon />
         <div className='header-left'>
           <FontSelector
             selected={font}

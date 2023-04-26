@@ -38,6 +38,7 @@ header {
   max-width: 737px;
   margin: auto;
   padding: 1.5rem;
+  align-items: center;
 }
 
 .header-left {
@@ -45,7 +46,7 @@ header {
 }
 
 .header-left hr {
-  height: 100%;
+  height: 1.5rem;
   align-self: center;
   margin: 0 1rem 0 0.5rem;
   background-color: var(--accent-grey);
