@@ -55,7 +55,7 @@ header {
 main {
   max-width: 737px;
   margin: auto;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 1rem 1.5rem;
 }
 
 .search {

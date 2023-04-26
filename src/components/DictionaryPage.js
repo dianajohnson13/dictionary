@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import "../styles/DictionaryPage.css"
 import EntryHeader from "./EntryHeader";
 import Meaning from "./Meaning";
 
@@ -55,7 +56,9 @@ class DictionaryPage extends Component {
         if (this.props.word === prevProps.word) return;
 
         if (this.props.word) {
-            this.setState({ loading: true, data: null });
+            // the DOM doesn't update for loading === true unless data === null
+                // TO-DO: visually display loading for the sake of the occasional slow fetch
+            this.setState({ loading: true });
             fetchData(this.props.word)
                 .then(data => this.setState({ data, loading: false }));
         } else {
@@ -85,11 +88,20 @@ class DictionaryPage extends Component {
                 })}
             </div>
         ) : loading ? (
-            <p>Loading...</p>
+            // loading state only displayed if loading and !data.
+            <div className="placeholder-container">
+                <p>Loading...</p>
+            </div>
         ) : (!loading && !data && word) ? (
-            <p>Word not found</p>
+            <div className="placeholder-container">
+                <h2>No results found</h2>
+                <p>Please enter a different word</p>
+            </div>
         ) : (
-            <p>Search for a word...</p>
+            <div className="placeholder-container">
+                <h2>Welcome!</h2>
+                <p>Enter a word in the search bar to find its definition</p>
+            </div>
         );
     }
 }
