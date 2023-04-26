@@ -30,19 +30,24 @@ const fetchData = (word) => {
         .catch(error => console.log(error))
 };
 
+// TO-DO: Convert to functional component w/ hooks.
+    // I used a class component here as a refresher for myself
 class DictionaryPage extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            data: null
+            data: null,
+            loading: true
         };
     }
 
     componentDidMount() {
         if (this.props.word) {
             fetchData(this.props.word)
-                .then(data => this.setState({ data }));
+                .then(data => this.setState({ data, loading: false }));
+        } else {
+            this.setState({ loading: false })
         }
     }
 
@@ -50,15 +55,17 @@ class DictionaryPage extends Component {
         if (this.props.word === prevProps.word) return;
 
         if (this.props.word) {
+            this.setState({ loading: true, data: null });
             fetchData(this.props.word)
-                .then(data => this.setState({ data }));
+                .then(data => this.setState({ data, loading: false }));
         } else {
              this.setState({ data: null });
         }
     }
 
     render() {
-        const { data } = this.state;
+        const { word } = this.props;
+        const { data, loading } = this.state;
         return data ? (
             <div>
                 <EntryHeader
@@ -77,6 +84,10 @@ class DictionaryPage extends Component {
                     );
                 })}
             </div>
+        ) : loading ? (
+            <p>Loading...</p>
+        ) : (!loading && !data && word) ? (
+            <p>Word not found</p>
         ) : (
             <p>Search for a word...</p>
         );
