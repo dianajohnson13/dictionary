@@ -2,19 +2,23 @@
 
 *in progress*
 
-Uses https://dictionaryapi.dev/
+<img src="./imgs/app.png" alt="app screenshot" width="50%" style="vertical-align: top; margin-right: 20px"/>
+<img src="./imgs/app-mobile.png" alt="Mobile version with dark mode on" width="20%" style="vertical-align: top;"/>
 
-Does not follow strict designs but loosely pulls from the screenshots posted for a [dictionary web app challenge](https://www.frontendmentor.io/challenges/dictionary-web-app-h5wwnyuKFL)
+---
 
----------------
+### Notes
+- Uses https://dictionaryapi.dev/
+- Does not follow strict designs but loosely pulls from the screenshots posted for a [dictionary web app challenge](https://www.frontendmentor.io/challenges/dictionary-web-app-h5wwnyuKFL)
 
-Initialized with Create React App
+---
 
-#### `npm start`
+### `npm start`
 
 Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
+The page will reload when you make changes.
 You may also see any lint errors in the console.
+
 
