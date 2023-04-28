@@ -5,6 +5,7 @@ import DictionaryPage from './components/DictionaryPage';
 import ThemeSwitch from './components/ThemeSwitch';
 import FontSelector from './components/FontSelector';
 import {ReactComponent as PlayIcon } from './assets/logo.svg';
+import { urlEncodeWord, urlDecodeWord } from './utils/urlHandlers';
 
 export const FONTS = {
   "sans serif": "sans-serif",
@@ -19,8 +20,8 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('hashchange',() => {
-      // TO-DO: Handle multiple words in URL
-      const newWord = window.location.href.split("#")[1];
+      // urlDecodeWord handles multiple words
+      const newWord = urlDecodeWord(window.location.href.split("#")[1]);
       setWord(newWord);
       window.document.getElementById('searchInput').value = newWord;
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -30,8 +31,8 @@ function App() {
   const onSearchWord = (event) => {
     if (event.key === 'Enter') {
       setWord(event.target.value);
-     // TO-DO: Handle multiple words in URL
-      window.location.hash = `#${event.target.value}`;
+      // urlEncodeWord handles multiple words
+      window.location.hash = `#${urlEncodeWord(event.target.value)}`;
     }
   }
 

@@ -1,5 +1,7 @@
 import "../styles/RelatedWordList.css";
 
+import { urlEncodeWord } from "../utils/urlHandlers";
+
 function RelatedWordList({
     label,
     list
@@ -10,7 +12,8 @@ function RelatedWordList({
             <ul>
                 {list.map((word, idx) => (
                         <li key={idx}>
-                            <a href={`#${word.replace(" ", "-")}`}>{word}</a>
+                            {/* urlEncodeWord handles multiple words */}
+                            <a href={`#${urlEncodeWord(word)}`}>{word}</a>
                             {/* unless it's the last word in the list, add a comma */}
                             {idx < list.length -1 ? ", " : null}
                         </li>
