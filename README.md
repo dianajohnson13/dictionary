@@ -2,6 +2,8 @@
 
 *in progress*
 
+A single page dictionary app built with React. Gets data from [DictionaryAPI](https://dictionaryapi.dev/).
+
 <img src="./imgs/app.png" alt="app screenshot" width="50%" style="vertical-align: top; margin-right: 20px"/>
 <img src="./imgs/app-mobile.png" alt="Mobile version with dark mode on" width="20%" style="vertical-align: top;"/>
 
